@@ -1,4 +1,7 @@
-data
+# Ignore data dir but not tests/data
+data/
+!tests/data/
+
 
 docs/source
 
