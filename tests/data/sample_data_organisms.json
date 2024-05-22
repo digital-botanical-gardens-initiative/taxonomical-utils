@@ -1,0 +1,337 @@
+{
+    "results": [
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": true,
+                    "matched_name": "Abelia mosanensis",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abelia mosanensis",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Zabelia mosanensis",
+                        "ott_id": 425469,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "Abelia mosanensis",
+                            "Zabelia monsanensis"
+                        ],
+                        "tax_sources": ["ncbi:761860"],
+                        "unique_name": "Zabelia mosanensis"
+                    }
+                },
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": true,
+                    "matched_name": "Abelia mosanensis",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abelia mosanensis",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Zabelia tyaihyoni",
+                        "ott_id": 425474,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "Abelia mosanensis",
+                            "Abelia tyaihyoni",
+                            "Abelia tyaihyoni mosanensis",
+                            "Zabelia mosanensis",
+                            "Zabelia tyaihyonii"
+                        ],
+                        "tax_sources": ["ncbi:761861", "gbif:3857292"],
+                        "unique_name": "Zabelia tyaihyoni"
+                    }
+                }
+            ],
+            "name": "abelia mosanensis"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": true,
+                    "matched_name": "Abelia grandiflora",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abelia grandiflora",
+                    "taxon": {
+                        "flags": ["hybrid"],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": true,
+                        "name": "Abelia x grandiflora",
+                        "ott_id": 3892281,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "Abelia grandiflora",
+                            "Abelia rupestris grandiflora"
+                        ],
+                        "tax_sources": [
+                            "ncbi:105883",
+                            "gbif:5334278",
+                            "irmng:10697262"
+                        ],
+                        "unique_name": "Abelia x grandiflora"
+                    }
+                }
+            ],
+            "name": "abelia grandiflora"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abeliophyllum distichum",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abeliophyllum distichum",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abeliophyllum distichum",
+                        "ott_id": 320380,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "Abeliophyllum distichum albiflorum",
+                            "Abeliophyllum distichum eburneum",
+                            "Abeliophyllum distichum lilacinum",
+                            "Abeliophyllum distichum obtusicarpum",
+                            "Abeliophyllum distichum viridicalycinum"
+                        ],
+                        "tax_sources": ["ncbi:126358", "gbif:7326165"],
+                        "unique_name": "Abeliophyllum distichum"
+                    }
+                }
+            ],
+            "name": "abeliophyllum distichum"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abelmoschus esculentus",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abelmoschus esculentus",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abelmoschus esculentus",
+                        "ott_id": 514975,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "Abelmoschus bammia",
+                            "Abelmoschus esculentus praecox",
+                            "Abelmoschus esculentus textilis",
+                            "Abelmoschus officinalis",
+                            "Abelmoschus praecox",
+                            "Abelmoschus tuberculatus",
+                            "Hibiscus bammia",
+                            "Hibiscus esculentus",
+                            "Hibiscus ficifolius",
+                            "Hibiscus longifolius",
+                            "Hibiscus praecox"
+                        ],
+                        "tax_sources": [
+                            "ncbi:455045",
+                            "gbif:3152707",
+                            "irmng:10908198"
+                        ],
+                        "unique_name": "Abelmoschus esculentus"
+                    }
+                }
+            ],
+            "name": "abelmoschus esculentus"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abelmoschus manihot",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abelmoschus manihot",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abelmoschus manihot",
+                        "ott_id": 17450,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [],
+                        "tax_sources": [
+                            "ncbi:183220",
+                            "gbif:3152706",
+                            "irmng:10460003"
+                        ],
+                        "unique_name": "Abelmoschus manihot"
+                    }
+                }
+            ],
+            "name": "abelmoschus manihot"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abelmoschus moschatus",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abelmoschus moschatus",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abelmoschus moschatus",
+                        "ott_id": 1030301,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "Hibiscus abelmoschus",
+                            "Hibiscus cardiophyllus",
+                            "Laguna abelmoschus"
+                        ],
+                        "tax_sources": [
+                            "ncbi:1170222",
+                            "gbif:8312665",
+                            "irmng:10198179",
+                            "irmng:11413786"
+                        ],
+                        "unique_name": "Abelmoschus moschatus"
+                    }
+                }
+            ],
+            "name": "abelmoschus moschatus"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abies alba",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abies alba",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abies alba",
+                        "ott_id": 887363,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": [
+                            "? compacta",
+                            "Abies alba alba",
+                            "Abies alba apennina",
+                            "Abies alba pardei",
+                            "Abies alba pendula",
+                            "Abies alba podolica",
+                            "Abies alba pyramidalis",
+                            "Abies argentea",
+                            "Abies baldensis",
+                            "Abies candicans",
+                            "Abies chlorocarpa",
+                            "Abies duplex",
+                            "Abies excelsa",
+                            "Abies miniata",
+                            "Abies nobilis",
+                            "Abies pardei",
+                            "Abies pectinata",
+                            "Abies picea",
+                            "Abies taxifolia",
+                            "Abies vulgaris",
+                            "Picea excelsa",
+                            "Picea pectinata",
+                            "Picea pectinata pendula",
+                            "Pinus abies",
+                            "Pinus abies leioclada",
+                            "Pinus abies pectinata",
+                            "Pinus baldensis",
+                            "Pinus heterophylla",
+                            "Pinus lucida",
+                            "Pinus pectinata",
+                            "Pinus picea"
+                        ],
+                        "tax_sources": [
+                            "ncbi:45372",
+                            "gbif:2685484",
+                            "irmng:11034791"
+                        ],
+                        "unique_name": "Abies alba"
+                    }
+                }
+            ],
+            "name": "abies alba"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abies koreana",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abies koreana",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abies koreana",
+                        "ott_id": 876314,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": ["Abies koreana nigrocarpa"],
+                        "tax_sources": ["ncbi:97170", "gbif:2685681"],
+                        "unique_name": "Abies koreana"
+                    }
+                }
+            ],
+            "name": "abies koreana"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "Abies nordmanniana",
+                    "nomenclature_code": "ICN",
+                    "score": 1.0,
+                    "search_string": "abies nordmanniana",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "Abies nordmanniana",
+                        "ott_id": 876306,
+                        "rank": "species",
+                        "source": "ott3.6draft1",
+                        "synonyms": ["Abies leioclada"],
+                        "tax_sources": ["ncbi:97177", "gbif:2685552"],
+                        "unique_name": "Abies nordmanniana"
+                    }
+                }
+            ],
+            "name": "abies nordmanniana"
+        }
+    ],
+    "unmatched_names": []
+}

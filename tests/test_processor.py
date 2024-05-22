@@ -1,7 +1,8 @@
 import os
 from typing import Any, Dict
 
-from taxonomical_utils.processor import load_json, normalize_json, process_species_list, resolve_organisms, save_json
+from taxonomical_utils.processor import process_species_list, resolve_organisms
+from taxonomical_utils.shared import load_json, normalize_json_resolver, save_json
 
 
 def test_process_species_list():
@@ -27,12 +28,12 @@ def test_save_load_json(tmpdir):
     assert loaded_data == data
 
 
-def test_normalize_json():
+def test_normalize_json_resolver():
     data: Dict[str, Any] = {
         "results": [{"matches": [{"name": "Abelia mosanensis"}]}],
         "unmatched_names": ["Unknown species"],
     }
-    matches, unmatched = normalize_json(data)
+    matches, unmatched = normalize_json_resolver(data)
     assert not matches.empty
     assert not unmatched.empty
     assert "name" in matches.columns
