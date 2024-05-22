@@ -12,6 +12,10 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
+click = "^8.1.7"
+opentree = "^1.0.1"
+pandas = "^2.2.2"
+requests = "^2.32.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
@@ -20,6 +24,12 @@ deptry = "^0.12.0"
 mypy = "^1.5.1"
 pre-commit = "^3.4.0"
 tox = "^4.11.1"
+pandas-stubs = "^2.2.2.240514"
+types-requests = "^2.32.0.20240521"
+
+[tool.poetry.scripts]
+taxonomical-utils = "taxonomical_utils.cli:cli"
+
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
@@ -39,6 +49,10 @@ check_untyped_defs = "True"
 warn_return_any = "True"
 warn_unused_ignores = "True"
 show_error_codes = "True"
+
+[[tool.mypy.overrides]]
+module = "opentree"
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
