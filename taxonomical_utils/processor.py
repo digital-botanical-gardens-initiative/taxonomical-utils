@@ -7,14 +7,20 @@ from pandas import json_normalize
 
 
 def process_species_list(
-    path_to_input_file: str, org_column_header: str = "source_taxon", delimiter: str = "\t"
+    path_to_input_file: str, org_column_header: str = "source_taxon", delimiter: str = ","
 ) -> pd.DataFrame:
     species_list_df = pd.read_csv(path_to_input_file, sep=delimiter, encoding="unicode_escape")
-    species_list_df[org_column_header].dropna(inplace=True)
-    species_list_df[org_column_header] = species_list_df[org_column_header].str.lower()
-    species_list_df[org_column_header] = species_list_df[org_column_header].str.replace(r" sp", "", regex=True)
-    species_list_df[org_column_header] = species_list_df[org_column_header].str.replace(r" x ", " ", regex=True)
-    species_list_df[org_column_header] = species_list_df[org_column_header].str.replace(r" x$", "", regex=True)
+    print("Columns in DataFrame:", species_list_df.columns.tolist())  # Debug print
+    species_list_df.columns = species_list_df.columns.str.strip()  # Strip any leading/trailing whitespace
+    # First, we copy the original column to a new column with a standardized name
+    species_list_df["taxon_search_string"] = species_list_df[org_column_header]
+    species_list_df["taxon_search_string"].dropna(inplace=True)
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.lower()
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" sp ", "", regex=True)
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" x ", " ", regex=True)
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" x$", "", regex=True)
+    # Here the first two words are taken as the genus and species
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.split().str[:2].str.join(" ")
 
     return species_list_df
 
@@ -41,5 +47,5 @@ def load_json(filepath: str) -> Dict[str, Any]:
 
 def normalize_json(json_data: Dict[str, Any]) -> Tuple[pd.DataFrame, pd.DataFrame]:
     matches = json_normalize(json_data, record_path=["results", "matches"])
-    unmatched = json_normalize(json_data, record_path=["unmatched_names"])
+    unmatched = pd.DataFrame(json_data["unmatched_names"], columns=["unmatched_names"])
     return matches, unmatched

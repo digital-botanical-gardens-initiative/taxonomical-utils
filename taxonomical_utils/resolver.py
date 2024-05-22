@@ -35,7 +35,7 @@ def main(
     species_list_df = process_species_list(path_to_input_file, org_column_header, delimiter)
 
     # Resolve organisms
-    organisms = species_list_df[org_column_header].unique().tolist()
+    organisms = species_list_df["taxon_search_string"].unique().tolist()
     organisms_tnrs_matched = resolve_organisms(organisms)
 
     # Save matched organisms to json
@@ -51,7 +51,7 @@ def main(
 
     # Merge with the original dataframe
     merged_df = species_list_df.merge(
-        df_organism_tnrs_matched_unique, how="left", left_on=org_column_header, right_on="search_string"
+        df_organism_tnrs_matched_unique, how="left", left_on="taxon_search_string", right_on="search_string"
     )
     merged_df.drop_duplicates(subset=[org_column_header, "matched_name", "taxon.ott_id"], keep="first", inplace=True)
 

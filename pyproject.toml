@@ -26,6 +26,7 @@ pre-commit = "^3.4.0"
 tox = "^4.11.1"
 pandas-stubs = "^2.2.2.240514"
 types-requests = "^2.32.0.20240521"
+ipykernel = "^6.29.4"
 
 [tool.poetry.scripts]
 taxonomical-utils = "taxonomical_utils.cli:cli"
