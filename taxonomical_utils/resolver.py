@@ -28,6 +28,10 @@ def resolve_taxa(
 
     # Resolve organisms
     organisms = species_list_df["taxon_search_string"].unique().tolist()
+    # Here also we make sure to remove NaN values
+    organisms = [x for x in organisms if str(x) != "nan"]
+    print(f"Resolving {len(organisms)} organisms")
+    print(organisms)
     organisms_tnrs_matched = resolve_organisms(organisms)
 
     # Save matched organisms to json

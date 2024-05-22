@@ -60,7 +60,7 @@ poetry run taxonomical-utils resolve --input-file <input_file> --output-file <re
 Example:
 
 ```bash
-poetry run taxonomical-utils resolve --input-file data/example.csv --output-file data/out/resolved_taxa.csv --org-column-header idTaxon
+poetry run taxonomical-utils resolve --input-file ./data/in/example.csv --output-file ./data/out/resolved_taxa.csv --org-column-header idTaxon
 ```
 
 #### 2. Append Upper Taxa Lineage

@@ -165,6 +165,9 @@ def append_upper_taxa_lineage(input_file: str, output_file: str) -> pd.DataFrame
         if (column not in merged.columns) or (merged[column].isnull().all()):
             merged[column] = pd.NA
 
+    # Reorder columns as listed above and keep any additional columns
+    merged = merged[required_columns + [col for col in merged.columns if col not in required_columns]]
+
     # Save to CSV
     merged.to_csv(output_file, sep=",", index=False, encoding="utf-8")
 

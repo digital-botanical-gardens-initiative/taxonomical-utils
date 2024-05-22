@@ -37,6 +37,7 @@ def test_main_local_file(tmpdir):
     matched_names = [match["matched_name"] for result in json_data["results"] for match in result["matches"]]
     assert "Abelia mosanensis" in matched_names
     assert "Abies nordmanniana" in matched_names
+    assert "Nana" not in matched_names
 
     # Check final CSV output
     treated_df = pd.read_csv(str(data_out_path))
