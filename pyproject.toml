@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "taxonomical_utils"
-version = "0.0.3"
+version = "0.0.4"
 description = "A set of Python scripts to proceed to taxonomical resolution and retrieval of upper taxonomies."
 authors = ["Pierre-Marie Allard <fpierre-marie.allard@unifr.ch>"]
 repository = "https://github.com/digital-botanical-gardens-initiative/taxonomical-utils"
