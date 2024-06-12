@@ -20,7 +20,9 @@ def process_species_list(
     species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.lower()
     species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" sp ", "", regex=True)
     species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" x ", " ", regex=True)
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" × ", "", regex=True)  # noqa: RUF001
     species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" x$", "", regex=True)
+    species_list_df["taxon_search_string"] = species_list_df["taxon_search_string"].str.replace(r" ×$", "", regex=True)  # noqa: RUF001
 
     # List of invalid or placeholder taxon strings
     invalid_taxon_strings = ["nan", "nd", "", None]
