@@ -2867,5 +2867,18 @@
         "synonyms": ["Abies leioclada"],
         "tax_sources": ["ncbi:97177", "gbif:2685552"],
         "unique_name": "Abies nordmanniana"
+    },
+    {
+        "flags": [],
+        "is_suppressed": false,
+        "is_suppressed_from_synth": false,
+        "lineage": [],
+        "name": "life",
+        "ott_id": 805080,
+        "rank": "no rank",
+        "source": "ott3.6draft1",
+        "synonyms": ["all"],
+        "tax_sources": ["silva:0", "ncbi:1", "gbif:0", "irmng:0"],
+        "unique_name": "life"
     }
 ]

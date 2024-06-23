@@ -331,6 +331,36 @@
                 }
             ],
             "name": "abies nordmanniana"
+        },
+        {
+            "matches": [
+                {
+                    "is_approximate_match": false,
+                    "is_synonym": false,
+                    "matched_name": "life",
+                    "nomenclature_code": "undefined",
+                    "score": 1.0,
+                    "search_string": "life",
+                    "taxon": {
+                        "flags": [],
+                        "is_suppressed": false,
+                        "is_suppressed_from_synth": false,
+                        "name": "life",
+                        "ott_id": 805080,
+                        "rank": "no rank",
+                        "source": "ott3.6draft1",
+                        "synonyms": ["all"],
+                        "tax_sources": [
+                            "silva:0",
+                            "ncbi:1",
+                            "gbif:0",
+                            "irmng:0"
+                        ],
+                        "unique_name": "life"
+                    }
+                }
+            ],
+            "name": "life"
         }
     ],
     "unmatched_names": []
