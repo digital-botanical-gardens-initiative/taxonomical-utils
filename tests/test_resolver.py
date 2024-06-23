@@ -10,7 +10,8 @@ from taxonomical_utils.resolver import resolve_taxa
 
 def test_main_local_file(tmpdir):
     data_in_path = "tests/data/sample_data.csv"
-    data_out_path = tmpdir.join("sample_data_treated.csv")
+    # data_out_path = tmpdir.join("sample_data_treated.csv")
+    data_out_path = "tests/data/sample_data_treated.csv"
     org_column_header = "idTaxon"
 
     # Run the resolver
