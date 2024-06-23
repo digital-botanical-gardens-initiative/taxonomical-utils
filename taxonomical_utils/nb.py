@@ -3,6 +3,19 @@ from typing import Optional
 import pandas as pd
 
 from taxonomical_utils.processor import process_species_list
+from taxonomical_utils.wikidata_fetcher import wd_taxo_fetcher_from_ott
+
+url = "https://query.wikidata.org/sparql"
+ott_id = 514975  # Example ott_id
+wd_taxo_fetcher_from_ott(url, ott_id)
+
+input_file = "tests/data/sample_data.csv"
+output_file = "tests/data/merged_output.csv"
+org_column_header = "idTaxon"
+resolved_taxa_file = "tests/data/sample_data_treated.csv"
+upper_taxa_lineage_file = "tests/data/sample_data_upper_taxo.csv"
+wd_file = "tests/data/sample_data_wd.csv"
+delimiter = ","
 
 
 def merge_files(
@@ -39,3 +52,14 @@ def merge_files(
         input_df = pd.merge(input_df, wd_df, left_on="otl_taxon.ott_id", right_on="wd_ott.value", how="left")
 
     input_df.to_csv(output_file, sep=delimiter, index=False)
+
+
+merge_files(
+    input_file=input_file,
+    output_file=output_file,
+    org_column_header=org_column_header,
+    delimiter=delimiter,
+    resolved_taxa_file=resolved_taxa_file,
+    upper_taxa_lineage_file=upper_taxa_lineage_file,
+    wd_file=wd_file,
+)
