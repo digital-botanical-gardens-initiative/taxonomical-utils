@@ -3,6 +3,7 @@ ott_id,organism_otol_kingdom,organism_otol_phylum,organism_otol_class,organism_o
 320380,Archaeplastida,Streptophyta,Magnoliopsida,Lamiales,Oleaceae,Abeliophyllum,Abeliophyllum distichum,Abeliophyllum distichum,5268475.0,916750.0,99252.0,23736.0,23723.0,320357.0,320380.0,Eukaryota,life,,,,Forsythieae,304358.0,805080.0,,,,1088194.0,[],species
 425469,Archaeplastida,Streptophyta,Magnoliopsida,Dipsacales,Caprifoliaceae,Zabelia,Zabelia mosanensis,Zabelia mosanensis,5268475.0,916750.0,99252.0,659705.0,69534.0,702435.0,425469.0,Eukaryota,life,,,campanulids,,304358.0,805080.0,,,596121.0,,[],species
 514975,Archaeplastida,Streptophyta,Magnoliopsida,Malvales,Malvaceae,Abelmoschus,Abelmoschus esculentus,Abelmoschus esculentus,5268475.0,916750.0,99252.0,229284.0,279960.0,590123.0,514975.0,Eukaryota,life,,Malvoideae,,,304358.0,805080.0,,469942.0,,,[],species
+805080,,,,,,,,life,,,,,,,,,life,,,,,,805080.0,,,,,[],no rank
 876306,Archaeplastida,Streptophyta,,Pinales,Pinaceae,Abies,Abies nordmanniana,Abies nordmanniana,5268475.0,916750.0,,4736806.0,994067.0,994065.0,876306.0,Eukaryota,life,Pinidae,,,,304358.0,805080.0,7580277.0,,,,[],species
 876314,Archaeplastida,Streptophyta,,Pinales,Pinaceae,Abies,Abies koreana,Abies koreana,5268475.0,916750.0,,4736806.0,994067.0,994065.0,876314.0,Eukaryota,life,Pinidae,,,,304358.0,805080.0,7580277.0,,,,[],species
 887363,Archaeplastida,Streptophyta,,Pinales,Pinaceae,Abies,Abies alba,Abies alba,5268475.0,916750.0,,4736806.0,994067.0,994065.0,887363.0,Eukaryota,life,Pinidae,,,,304358.0,805080.0,7580277.0,,,,[],species

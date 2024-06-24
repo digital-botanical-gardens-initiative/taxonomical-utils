@@ -35,13 +35,34 @@ def fetch_taxon_info(ott_ids: List[int]) -> List[Dict[str, Any]]:
 
 
 def extract_lineage(json_data: List[Dict[str, Any]]) -> pd.DataFrame:
-    return json_normalize(
-        json_data,
+    # Process the JSON data
+    lineage_data = []
+
+    for entry in json_data:
+        if "lineage" in entry and entry["lineage"]:
+            lineage_data.append(entry)
+        else:
+            # Create a fake lineage for entries with an empty lineage
+            fake_lineage = [
+                {
+                    "name": entry["unique_name"],
+                    "ott_id": entry["ott_id"],
+                    "flags": entry["flags"],
+                    "rank": entry["rank"],
+                }
+            ]
+            lineage_data.append({**entry, "lineage": fake_lineage})
+
+    # Normalize the JSON data
+    df = json_normalize(
+        lineage_data,
         record_path=["lineage"],
         meta=["ott_id", "unique_name", "flags", "rank"],
         record_prefix="sub_",
         errors="ignore",
     )
+
+    return df
 
 
 def pivot_taxonomy(df: pd.DataFrame, value_column: str, suffix: str = "") -> pd.DataFrame:

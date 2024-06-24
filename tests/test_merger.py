@@ -39,6 +39,7 @@ def test_merge_files():
     assert org_column_header in merged_df.columns
 
 
+@pytest.mark.order("last")
 def test_merge_files_remove_intermediates(tmpdir):
     # Create temporary input files
     input_file = tmpdir.join("input_file.csv")
