@@ -45,20 +45,22 @@ def resolve_taxa(
     json_data = load_json(taxon_info_filename)
     df_organism_tnrs_matched, df_organism_tnrs_unmatched = normalize_json_resolver(json_data)
 
-    # Process the results and update the dataframe
-    df_organism_tnrs_matched.sort_values(["search_string", "is_synonym"], axis=0, inplace=True)
+    if not df_organism_tnrs_matched.empty:
+        # Process the results and update the dataframe
+        df_organism_tnrs_matched.sort_values(["search_string", "is_synonym"], axis=0, inplace=True)
 
-    # Ensure we keep all unique matches for each search_string
-    df_organism_tnrs_matched_unique = df_organism_tnrs_matched.drop_duplicates(
-        subset=["search_string"], keep="first"
-    ).copy()
+        # Ensure we keep all unique matches for each search_string
+        df_organism_tnrs_matched.drop_duplicates(subset=["search_string"], keep="first", inplace=True)
 
-    # Drop duplicates based on the provided org_column_header
-    df_organism_tnrs_matched_unique.drop_duplicates(
-        subset=["search_string", "matched_name", "taxon.ott_id"], keep="first", inplace=True
-    )
+        # Drop duplicates based on the provided org_column_header
+        df_organism_tnrs_matched.drop_duplicates(
+            subset=["search_string", "matched_name", "taxon.ott_id"], keep="first", inplace=True
+        )
 
-    # Save the final dataframe
-    df_organism_tnrs_matched_unique.to_csv(output_file, sep=",", index=False, encoding="utf-8")
+        # Save the final dataframe
+        df_organism_tnrs_matched.to_csv(output_file, sep=",", index=False, encoding="utf-8")
 
-    return df_organism_tnrs_matched_unique
+    else:
+        print(f"No organisms were resolved for {organisms}")
+
+    return df_organism_tnrs_matched

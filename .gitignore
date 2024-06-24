@@ -1,7 +1,8 @@
 # Ignore data dir but not tests/data
 data/
 !tests/data/
-
+params/
+taxo_utils_caller.py
 
 docs/source
 
