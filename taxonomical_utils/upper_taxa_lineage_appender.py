@@ -82,11 +82,11 @@ def append_upper_taxa_lineage(input_file: str, output_file: str) -> pd.DataFrame
     taxon_info = fetch_taxon_info(ott_list)
 
     # Save taxon info to JSON
-    # We keep the original input file name, strip the extension and add "_taxon_info.json" to it
+    # We keep the original input file name, strip the extension and add "_upper_taxa_lineage.json" to it
 
     input_file_no_ext = input_file.split(".")[0]
 
-    taxon_info_filename = f"{input_file_no_ext}_taxon_info.json"
+    taxon_info_filename = f"{input_file_no_ext}_upper_taxa_lineage.json"
     save_json(taxon_info, taxon_info_filename)
 
     # Load and normalize JSON

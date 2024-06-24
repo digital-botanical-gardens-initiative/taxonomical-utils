@@ -25,7 +25,7 @@ def test_main_local_file(tmpdir):
     assert "matched_name" in result_df.columns
 
     # Check intermediate JSON output
-    json_filepath = f"{os.path.splitext(data_in_path)[0]}_organisms.json"
+    json_filepath = f"{os.path.splitext(data_in_path)[0]}_taxon_info.json"
     assert os.path.isfile(json_filepath)
 
     with open(json_filepath) as f:

@@ -14,7 +14,6 @@ def resolve_taxa(
 ) -> pd.DataFrame:
     # Define paths
     path_to_input_file = input_file
-    organisms_tnrs_matched_filename = f"{os.path.splitext(input_file)[0]}_organisms.json"
 
     # Check if the input file exists
     if not os.path.isfile(path_to_input_file):
@@ -34,11 +33,16 @@ def resolve_taxa(
     print(organisms)
     organisms_tnrs_matched = resolve_organisms(organisms)
 
-    # Save matched organisms to json
-    save_json(organisms_tnrs_matched, organisms_tnrs_matched_filename)
+    # Save taxon info to JSON
+    # We keep the original input file name, strip the extension and add "_taxon_info.json" to it
+
+    input_file_no_ext = input_file.split(".")[0]
+
+    taxon_info_filename = f"{input_file_no_ext}_taxon_info.json"
+    save_json(organisms_tnrs_matched, taxon_info_filename)
 
     # Load and normalize json
-    json_data = load_json(organisms_tnrs_matched_filename)
+    json_data = load_json(taxon_info_filename)
     df_organism_tnrs_matched, df_organism_tnrs_unmatched = normalize_json_resolver(json_data)
 
     # Process the results and update the dataframe

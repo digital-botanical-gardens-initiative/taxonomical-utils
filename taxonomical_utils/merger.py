@@ -1,3 +1,4 @@
+import os
 from typing import Optional
 
 import pandas as pd
@@ -13,7 +14,8 @@ def merge_files(
     resolved_taxa_file: Optional[str] = None,
     upper_taxa_lineage_file: Optional[str] = None,
     wd_file: Optional[str] = None,
-) -> None:
+    remove_intermediate: bool = False,
+) -> pd.DataFrame:
     input_df = pd.read_csv(input_file, delimiter=delimiter)
 
     # Process the species list in the input file
@@ -38,4 +40,14 @@ def merge_files(
         wd_df = wd_df.add_prefix("wd_")
         input_df = pd.merge(input_df, wd_df, left_on="otl_taxon.ott_id", right_on="wd_ott.value", how="left")
 
-    input_df.to_csv(output_file, sep=delimiter, index=False)
+    input_df.to_csv(output_file, index=False, sep=delimiter)
+
+    if remove_intermediate:
+        if resolved_taxa_file and os.path.exists(resolved_taxa_file):
+            os.remove(resolved_taxa_file)
+        if upper_taxa_lineage_file and os.path.exists(upper_taxa_lineage_file):
+            os.remove(upper_taxa_lineage_file)
+        if wd_file and os.path.exists(wd_file):
+            os.remove(wd_file)
+
+    return input_df
