@@ -14,25 +14,25 @@ def cli() -> None:
     pass
 
 
-@click.command()
+@click.command(name="resolve_taxa")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
 @click.option("--org-column-header", required=True, type=str, help="Column header for the organism.")
-def resolve(input_file: str, output_file: str, org_column_header: str) -> None:
+def resolve_taxa_cli(input_file: str, output_file: str, org_column_header: str) -> None:
     resolve_taxa(input_file, output_file, org_column_header)
 
 
-@click.command()
+@click.command(name="append_taxonomy")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
-def append_taxonomy(input_file: str, output_file: str) -> None:
+def append_taxonomy_cli(input_file: str, output_file: str) -> None:
     append_upper_taxa_lineage(input_file, output_file)
 
 
-@click.command()
+@click.command(name="append_wd_id")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
-def append_wd_id(input_file: str, output_file: str) -> None:
+def append_wd_id_cli(input_file: str, output_file: str) -> None:
     url = "https://query.wikidata.org/sparql"
     input_df = pd.read_csv(input_file)
     results = []
@@ -43,7 +43,7 @@ def append_wd_id(input_file: str, output_file: str) -> None:
     final_df.to_csv(output_file, index=False)
 
 
-@click.command()
+@click.command(name="merge")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--resolved-taxa-file", type=click.Path(exists=True), help="Path to the resolved taxa file.")
 @click.option("--upper-taxa-lineage-file", type=click.Path(exists=True), help="Path to the upper taxa lineage file.")
@@ -52,7 +52,7 @@ def append_wd_id(input_file: str, output_file: str) -> None:
 @click.option("--org-column-header", required=True, type=str, help="Column header for the organism.")
 @click.option("--delimiter", default=",", type=str, help="Delimiter of the input file.")
 @click.option("--remove-intermediate", is_flag=True, help="Remove intermediate files.")
-def merge(
+def merge_cli(
     input_file: str,
     output_file: str,
     org_column_header: str,
@@ -74,10 +74,10 @@ def merge(
     )
 
 
-cli.add_command(resolve)
-cli.add_command(append_taxonomy)
-cli.add_command(append_wd_id)
-cli.add_command(merge)
+cli.add_command(resolve_taxa_cli)
+cli.add_command(append_taxonomy_cli)
+cli.add_command(append_wd_id_cli)
+cli.add_command(merge_cli)
 
 if __name__ == "__main__":
     cli()
