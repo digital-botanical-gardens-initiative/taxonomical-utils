@@ -144,44 +144,223 @@ def append_upper_taxa_lineage(input_file: str, output_file: str) -> pd.DataFrame
     merged = add_lowest_taxon_rank(merged)
 
     # Rename columns
+    # renaming_dict = {
+    #     "kingdom": "organism_otol_kingdom",
+    #     "phylum": "organism_otol_phylum",
+    #     "class": "organism_otol_class",
+    #     "order": "organism_otol_order",
+    #     "family": "organism_otol_family",
+    #     "genus": "organism_otol_genus",
+    #     "species": "organism_otol_species",
+    #     "unique_name": "organism_otol_unique_name",
+    #     "kingdom_ott_id": "organism_otol_kingdom_ott_id",
+    #     "phylum_ott_id": "organism_otol_phylum_ott_id",
+    #     "class_ott_id": "organism_otol_class_ott_id",
+    #     "order_ott_id": "organism_otol_order_ott_id",
+    #     "family_ott_id": "organism_otol_family_ott_id",
+    #     "genus_ott_id": "organism_otol_genus_ott_id",
+    #     "species_ott_id": "organism_otol_species_ott_id",
+    # }
+
+    # class
+    # domain
+    # family
+    # forma
+    # genus
+    # infrakingdom
+    # infraorder
+    # infraphylum
+    # infraspecificname
+    # kingdom
+    # no rank
+    # no rank - terminal
+    # order
+    # phylum
+    # section
+    # species
+    # species group
+    # species subgroup
+    # subclass
+    # subdivision
+    # subfamily
+    # subgenus
+    # subkingdom
+    # suborder
+    # subphylum
+    # subsection
+    # subspecies
+    # subtribe
+    # superclass
+    # superfamily
+    # superorder
+    # tribe
+    # varietas
+    # variety
     renaming_dict = {
-        "kingdom": "organism_otol_kingdom",
-        "phylum": "organism_otol_phylum",
         "class": "organism_otol_class",
-        "order": "organism_otol_order",
+        "domain": "organism_otol_domain",
         "family": "organism_otol_family",
+        "forma": "organism_otol_forma",
         "genus": "organism_otol_genus",
+        "infrakingdom": "organism_otol_infrakingdom",
+        "infraorder": "organism_otol_infraorder",
+        "infraphylum": "organism_otol_infraphylum",
+        "infraspecificname": "organism_otol_infraspecificname",
+        "kingdom": "organism_otol_kingdom",
+        "no rank": "organism_otol_no_rank",
+        "no rank - terminal": "organism_otol_no_rank_terminal",
+        "order": "organism_otol_order",
+        "phylum": "organism_otol_phylum",
+        "section": "organism_otol_section",
         "species": "organism_otol_species",
-        "unique_name": "organism_otol_unique_name",
-        "kingdom_ott_id": "organism_otol_kingdom_ott_id",
-        "phylum_ott_id": "organism_otol_phylum_ott_id",
+        "species group": "organism_otol_species_group",
+        "species subgroup": "organism_otol_species_subgroup",
+        "subclass": "organism_otol_subclass",
+        "subdivision": "organism_otol_subdivision",
+        "subfamily": "organism_otol_subfamily",
+        "subgenus": "organism_otol_subgenus",
+        "subkingdom": "organism_otol_subkingdom",
+        "suborder": "organism_otol_suborder",
+        "subphylum": "organism_otol_subphylum",
+        "subsection": "organism_otol_subsection",
+        "subspecies": "organism_otol_subspecies",
+        "subtribe": "organism_otol_subtribe",
+        "superclass": "organism_otol_superclass",
+        "superfamily": "organism_otol_superfamily",
+        "superorder": "organism_otol_superorder",
+        "tribe": "organism_otol_tribe",
+        "varietas": "organism_otol_varietas",
+        "variety": "organism_otol_variety",
         "class_ott_id": "organism_otol_class_ott_id",
-        "order_ott_id": "organism_otol_order_ott_id",
+        "domain_ott_id": "organism_otol_domain_ott_id",
         "family_ott_id": "organism_otol_family_ott_id",
+        "forma_ott_id": "organism_otol_forma_ott_id",
         "genus_ott_id": "organism_otol_genus_ott_id",
+        "infrakingdom_ott_id": "organism_otol_infrakingdom_ott_id",
+        "infraorder_ott_id": "organism_otol_infraorder_ott_id",
+        "infraphylum_ott_id": "organism_otol_infraphylum_ott_id",
+        "infraspecificname_ott_id": "organism_otol_infraspecificname_ott_id",
+        "kingdom_ott_id": "organism_otol_kingdom_ott_id",
+        "no rank_ott_id": "organism_otol_no_rank_ott_id",
+        "no rank - terminal_ott_id": "organism_otol_no_rank_terminal_ott_id",
+        "order_ott_id": "organism_otol_order_ott_id",
+        "phylum_ott_id": "organism_otol_phylum_ott_id",
+        "section_ott_id": "organism_otol_section_ott_id",
         "species_ott_id": "organism_otol_species_ott_id",
+        "species group_ott_id": "organism_otol_species_group_ott_id",
+        "species subgroup_ott_id": "organism_otol_species_subgroup_ott_id",
+        "subclass_ott_id": "organism_otol_subclass_ott_id",
+        "subdivision_ott_id": "organism_otol_subdivision_ott_id",
+        "subfamily_ott_id": "organism_otol_subfamily_ott_id",
+        "subgenus_ott_id": "organism_otol_subgenus_ott_id",
+        "subkingdom_ott_id": "organism_otol_subkingdom_ott_id",
+        "suborder_ott_id": "organism_otol_suborder_ott_id",
+        "subphylum_ott_id": "organism_otol_subphylum_ott_id",
+        "subsection_ott_id": "organism_otol_subsection_ott_id",
+        "subspecies_ott_id": "organism_otol_subspecies_ott_id",
+        "subtribe_ott_id": "organism_otol_subtribe_ott_id",
+        "superclass_ott_id": "organism_otol_superclass_ott_id",
+        "superfamily_ott_id": "organism_otol_superfamily_ott_id",
+        "superorder_ott_id": "organism_otol_superorder_ott_id",
+        "tribe_ott_id": "organism_otol_tribe_ott_id",
+        "varietas_ott_id": "organism_otol_varietas_ott_id",
+        "variety_ott_id": "organism_otol_variety_ott_id",
     }
+
     merged = rename_columns(merged, renaming_dict)
+
+    # # Ensure all necessary columns are present
+    # required_columns = [
+    #     "organism_otol_kingdom",
+    #     "organism_otol_phylum",
+    #     "organism_otol_class",
+    #     "organism_otol_order",
+    #     "organism_otol_family",
+    #     "organism_otol_genus",
+    #     "organism_otol_species",
+    #     "organism_otol_unique_name",
+    #     "organism_otol_kingdom_ott_id",
+    #     "organism_otol_phylum_ott_id",
+    #     "organism_otol_class_ott_id",
+    #     "organism_otol_order_ott_id",
+    #     "organism_otol_family_ott_id",
+    #     "organism_otol_genus_ott_id",
+    #     "organism_otol_species_ott_id",
+    # ]
 
     # Ensure all necessary columns are present
     required_columns = [
-        "ott_id",
-        "organism_otol_kingdom",
-        "organism_otol_phylum",
         "organism_otol_class",
-        "organism_otol_order",
+        "organism_otol_domain",
         "organism_otol_family",
+        "organism_otol_forma",
         "organism_otol_genus",
+        "organism_otol_infrakingdom",
+        "organism_otol_infraorder",
+        "organism_otol_infraphylum",
+        "organism_otol_infraspecificname",
+        "organism_otol_kingdom",
+        "organism_otol_no_rank",
+        "organism_otol_no_rank_terminal",
+        "organism_otol_order",
+        "organism_otol_phylum",
+        "organism_otol_section",
         "organism_otol_species",
+        "organism_otol_species_group",
+        "organism_otol_species_subgroup",
+        "organism_otol_subclass",
+        "organism_otol_subdivision",
+        "organism_otol_subfamily",
+        "organism_otol_subgenus",
+        "organism_otol_subkingdom",
+        "organism_otol_suborder",
+        "organism_otol_subphylum",
+        "organism_otol_subsection",
+        "organism_otol_subspecies",
+        "organism_otol_subtribe",
+        "organism_otol_superclass",
+        "organism_otol_superfamily",
+        "organism_otol_superorder",
+        "organism_otol_tribe",
+        "organism_otol_varietas",
+        "organism_otol_variety",
         "organism_otol_unique_name",
-        "organism_otol_kingdom_ott_id",
-        "organism_otol_phylum_ott_id",
         "organism_otol_class_ott_id",
-        "organism_otol_order_ott_id",
+        "organism_otol_domain_ott_id",
         "organism_otol_family_ott_id",
+        "organism_otol_forma_ott_id",
         "organism_otol_genus_ott_id",
+        "organism_otol_infrakingdom_ott_id",
+        "organism_otol_infraorder_ott_id",
+        "organism_otol_infraphylum_ott_id",
+        "organism_otol_infraspecificname_ott_id",
+        "organism_otol_kingdom_ott_id",
+        "organism_otol_no_rank_ott_id",
+        "organism_otol_no_rank_terminal_ott_id",
+        "organism_otol_order_ott_id",
+        "organism_otol_phylum_ott_id",
+        "organism_otol_section_ott_id",
         "organism_otol_species_ott_id",
+        "organism_otol_species_group_ott_id",
+        "organism_otol_species_subgroup_ott_id",
+        "organism_otol_subclass_ott_id",
+        "organism_otol_subdivision_ott_id",
+        "organism_otol_subfamily_ott_id",
+        "organism_otol_subgenus_ott_id",
+        "organism_otol_subkingdom_ott_id",
+        "organism_otol_suborder_ott_id",
+        "organism_otol_subphylum_ott_id",
+        "organism_otol_subsection_ott_id",
+        "organism_otol_subspecies_ott_id",
+        "organism_otol_subtribe_ott_id",
+        "organism_otol_superclass_ott_id",
+        "organism_otol_superfamily_ott_id",
+        "organism_otol_superorder_ott_id",
+        "organism_otol_tribe_ott_id",
+        "organism_otol_varietas_ott_id",
+        "organism_otol_variety_ott_id",
     ]
+
     for column in required_columns:
         if (column not in merged.columns) or (merged[column].isnull().all()):
             merged[column] = pd.NA
