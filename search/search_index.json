@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"taxonomical-utils","text":"<p>A set of Python scripts to proceed to taxonomical resolution and retrieval of upper taxonomies.</p>"},{"location":"modules/","title":"Modules","text":""}]}
