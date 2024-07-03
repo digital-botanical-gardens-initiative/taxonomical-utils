@@ -14,7 +14,7 @@ def cli() -> None:
     pass
 
 
-@click.command(name="resolve_taxa")
+@click.command(name="resolve-taxa")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
 @click.option("--org-column-header", required=True, type=str, help="Column header for the organism.")
@@ -22,14 +22,14 @@ def resolve_taxa_cli(input_file: str, output_file: str, org_column_header: str) 
     resolve_taxa(input_file, output_file, org_column_header)
 
 
-@click.command(name="append_taxonomy")
+@click.command(name="append-taxonomy")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
 def append_taxonomy_cli(input_file: str, output_file: str) -> None:
     append_upper_taxa_lineage(input_file, output_file)
 
 
-@click.command(name="append_wd_id")
+@click.command(name="append-wd-id")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
 def append_wd_id_cli(input_file: str, output_file: str) -> None:
