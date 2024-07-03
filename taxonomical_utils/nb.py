@@ -22,7 +22,6 @@ def merge_files(
     input_file: str,
     output_file: str,
     org_column_header: str,
-    delimiter: str = ",",
     resolved_taxa_file: Optional[str] = None,
     upper_taxa_lineage_file: Optional[str] = None,
     wd_file: Optional[str] = None,
@@ -30,7 +29,7 @@ def merge_files(
     input_df = pd.read_csv(input_file, delimiter=delimiter)
 
     # Process the species list in the input file
-    input_df = process_species_list(input_file, org_column_header, delimiter)
+    input_df = process_species_list(input_file, org_column_header)
 
     if resolved_taxa_file:
         resolved_taxa_df = pd.read_csv(resolved_taxa_file)
@@ -58,7 +57,6 @@ merge_files(
     input_file=input_file,
     output_file=output_file,
     org_column_header=org_column_header,
-    delimiter=delimiter,
     resolved_taxa_file=resolved_taxa_file,
     upper_taxa_lineage_file=upper_taxa_lineage_file,
     wd_file=wd_file,

@@ -3,15 +3,13 @@ from typing import Any, Dict, List
 import pandas as pd
 from opentree import OT
 
-path_to_input_file = "data/in/example.csv"
-org_column_header = "idTaxon"
-delimiter = ","
+from taxonomical_utils.shared import read_table
 
 
-def process_species_list(
-    path_to_input_file: str, org_column_header: str = "source_taxon", delimiter: str = ","
-) -> pd.DataFrame:
-    species_list_df = pd.read_csv(path_to_input_file, sep=delimiter, encoding="utf-8")
+def process_species_list(input_file: str, org_column_header: str = "source_taxon") -> pd.DataFrame:
+    # Load the species list
+    species_list_df = read_table(input_file)
+
     species_list_df.columns = species_list_df.columns.str.strip()  # Strip any leading/trailing whitespace
     # First, we copy the original column to a new column with a standardized name
 

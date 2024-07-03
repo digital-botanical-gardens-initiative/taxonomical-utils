@@ -10,16 +10,13 @@ def merge_files(
     input_file: str,
     output_file: str,
     org_column_header: str,
-    delimiter: str = ",",
     resolved_taxa_file: Optional[str] = None,
     upper_taxa_lineage_file: Optional[str] = None,
     wd_file: Optional[str] = None,
     remove_intermediate: bool = False,
 ) -> pd.DataFrame:
-    input_df = pd.read_csv(input_file, delimiter=delimiter)
-
     # Process the species list in the input file
-    input_df = process_species_list(input_file, org_column_header, delimiter)
+    input_df = process_species_list(input_file, org_column_header)
 
     if resolved_taxa_file:
         resolved_taxa_df = pd.read_csv(resolved_taxa_file)
@@ -39,6 +36,15 @@ def merge_files(
         wd_df = pd.read_csv(wd_file)
         wd_df = wd_df.add_prefix("wd_")
         input_df = pd.merge(input_df, wd_df, left_on="otl_taxon.ott_id", right_on="wd_ott.value", how="left")
+
+    # Save the final dataframe
+    # Parse the output file extension to determine the delimiter
+    if output_file.endswith(".csv"):
+        delimiter = ","
+    elif output_file.endswith(".tsv"):
+        delimiter = "\t"
+    else:
+        delimiter = ","
 
     input_df.to_csv(output_file, index=False, sep=delimiter)
 

@@ -14,13 +14,11 @@ def test_merge_files():
     resolved_taxa_file = "tests/data/sample_data_treated.csv"
     upper_taxa_lineage_file = "tests/data/sample_data_upper_taxo.csv"
     wd_file = "tests/data/sample_data_wd.csv"
-    delimiter = ","
 
     merge_files(
         input_file=input_file,
         output_file=output_file,
         org_column_header=org_column_header,
-        delimiter=delimiter,
         resolved_taxa_file=resolved_taxa_file,
         upper_taxa_lineage_file=upper_taxa_lineage_file,
         wd_file=wd_file,

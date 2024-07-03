@@ -1,8 +1,5 @@
-import os
-
 import pandas as pd
 
-from taxonomical_utils.exceptions import FileDownloadError
 from taxonomical_utils.processor import process_species_list, resolve_organisms
 from taxonomical_utils.shared import load_json, normalize_json_resolver, save_json
 
@@ -12,18 +9,8 @@ def resolve_taxa(
     output_file: str,
     org_column_header: str,
 ) -> pd.DataFrame:
-    # Define paths
-    path_to_input_file = input_file
-
-    # Check if the input file exists
-    if not os.path.isfile(path_to_input_file):
-        raise FileDownloadError(path_to_file=path_to_input_file)
-
-    # Detect file type by extension if delimiter is not specified
-    delimiter = "," if input_file.endswith(".csv") else "\t"
-
-    # Process species list
-    species_list_df = process_species_list(path_to_input_file, org_column_header, delimiter)
+    # Process the species list in the input file
+    species_list_df = process_species_list(input_file, org_column_header)
 
     # Resolve organisms
     organisms = species_list_df["taxon_search_string"].unique().tolist()

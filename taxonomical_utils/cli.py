@@ -59,13 +59,11 @@ def append_wd_id_cli(input_file: str, output_file: str, ott_id_column: str) -> N
 @click.option("--wd-file", type=click.Path(exists=True), help="Path to the Wikidata ID file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
 @click.option("--org-column-header", required=True, type=str, help="Column header for the organism.")
-@click.option("--delimiter", default=",", type=str, help="Delimiter of the input file.")
 @click.option("--remove-intermediate", is_flag=True, help="Remove intermediate files.")
 def merge_cli(
     input_file: str,
     output_file: str,
     org_column_header: str,
-    delimiter: str,
     resolved_taxa_file: Optional[str] = None,
     upper_taxa_lineage_file: Optional[str] = None,
     wd_file: Optional[str] = None,
@@ -75,7 +73,6 @@ def merge_cli(
         input_file,
         output_file,
         org_column_header,
-        delimiter,
         resolved_taxa_file,
         upper_taxa_lineage_file,
         wd_file,

@@ -4,7 +4,6 @@ import os
 import pandas as pd
 import pytest
 
-from taxonomical_utils.exceptions import FileDownloadError
 from taxonomical_utils.resolver import resolve_taxa
 
 
@@ -56,16 +55,6 @@ def test_main_local_file(tmpdir):
     abies_nordmanniana_row = treated_df[search_string_normalized.str.contains("abies nordmanniana")]
     assert not abies_nordmanniana_row.empty
     assert not abies_nordmanniana_row["is_synonym"].values[0]  # Use `assert not` for False value
-
-
-def test_main_missing_file():
-    data_in_path = "tests/data/missing_file.csv"
-    data_out_path = "tests/data/missing_file_treated.csv"
-    org_column_header = "idTaxon"
-
-    with pytest.raises(FileDownloadError) as excinfo:
-        resolve_taxa(input_file=data_in_path, output_file=data_out_path, org_column_header=org_column_header)
-    assert str(excinfo.value) == f"The file {data_in_path} does not exist."
 
 
 # Run the test
