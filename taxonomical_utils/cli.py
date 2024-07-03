@@ -3,6 +3,7 @@ from typing import Optional
 import click
 import pandas as pd
 
+from taxonomical_utils.exceptions import ColumnNotFoundError
 from taxonomical_utils.merger import merge_files
 from taxonomical_utils.resolver import resolve_taxa
 from taxonomical_utils.upper_taxa_lineage_appender import append_upper_taxa_lineage
@@ -32,13 +33,21 @@ def append_taxonomy_cli(input_file: str, output_file: str) -> None:
 @click.command(name="append-wd-id")
 @click.option("--input-file", required=True, type=click.Path(exists=True), help="Path to the input file.")
 @click.option("--output-file", required=True, type=click.Path(), help="Path to the output file.")
-def append_wd_id_cli(input_file: str, output_file: str) -> None:
+@click.option(
+    "--ott-id-column", default="taxon.ott_id", help="Name of the column containing ott_id (default: taxon.ott_id)."
+)
+def append_wd_id_cli(input_file: str, output_file: str, ott_id_column: str) -> None:
     url = "https://query.wikidata.org/sparql"
     input_df = pd.read_csv(input_file)
+
+    if ott_id_column not in input_df.columns:
+        raise ColumnNotFoundError(ott_id_column)
+
     results = []
-    for ott_id in input_df["ott_id"]:
+    for ott_id in input_df[ott_id_column]:
         result_df = wd_taxo_fetcher_from_ott(url, ott_id)
         results.append(result_df)
+
     final_df = pd.concat(results, ignore_index=True)
     final_df.to_csv(output_file, index=False)
 
