@@ -9,3 +9,5 @@ False,False,Abies alba,ICN,1.0,abies alba,[],False,False,Abies alba,887363,speci
 False,False,Abies koreana,ICN,1.0,abies koreana,[],False,False,Abies koreana,876314,species,ott3.6draft1,['Abies koreana nigrocarpa'],"['ncbi:97170', 'gbif:2685681']",Abies koreana
 False,False,Abies nordmanniana,ICN,1.0,abies nordmanniana,[],False,False,Abies nordmanniana,876306,species,ott3.6draft1,['Abies leioclada'],"['ncbi:97177', 'gbif:2685552']",Abies nordmanniana
 False,False,life,undefined,1.0,life,[],False,False,life,805080,no rank,ott3.6draft1,['all'],"['silva:0', 'ncbi:1', 'gbif:0', 'irmng:0']",life
+True,False,Festuca chilensis,ICN,0.8235294222831726,neltuma chilensis,['sibling_higher'],False,False,Festuca chilensis,7587836,species,ott3.6draft1,[],['gbif:8807050'],Festuca chilensis
+False,False,Prosopis chilensis,ICN,1.0,prosopis chilensis,[],False,False,Prosopis chilensis,137210,species,ott3.6draft1,"['Acacia siliquastrum', 'Ceratonia chilensis', 'Mimosa siliquastrum', 'Prosopis schinopoma', 'Prosopis siliquastrum']","['ncbi:35716', 'gbif:5358466', 'irmng:10162874']",Prosopis chilensis

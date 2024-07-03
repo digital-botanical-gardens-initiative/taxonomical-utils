@@ -15,11 +15,21 @@ def wd_taxo_fetcher_from_ott(url: str, ott_id: int) -> pd.DataFrame:
     """
 
     r = requests.get(url, params={"format": "json", "query": query}, timeout=10)
-    data = r.json()
-    results = pd.DataFrame.from_dict(data).results.bindings
-    df = json_normalize(results)
+    print(r)
 
-    # Handle duplicates by keeping only the first occurrence for each 'ott.value'
-    df = df.drop_duplicates(subset=["ott.value"], keep="first")
+    if r.status_code == 200:
+        data = r.json()
+        print(data)
+        results = pd.DataFrame.from_dict(data).results.bindings
+        df = json_normalize(results)
+
+        # Handle duplicates by keeping only the first occurrence for each 'ott.value'
+        df = df.drop_duplicates(subset=["ott.value"], keep="first")
+
+    if r.status_code != 200:
+        # raise WikidataFetchError(ott_id)
+        # Handle empty results
+        # Return empty df with the following columns if no results are found (ott.type,ott.value,wd.type,wd.value,img.type,img.value)
+        df = pd.DataFrame(columns=["ott.type", "ott.value", "wd.type", "wd.value", "img.type", "img.value"])
 
     return df

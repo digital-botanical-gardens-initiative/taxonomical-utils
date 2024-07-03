@@ -19,7 +19,9 @@ def test_wd_taxo_fetcher_from_ott():
     # Fetch data for all OTT IDs
     results = []
     for ott_id in input_df["taxon.ott_id"]:
+        print(f"Fetching data for OTT ID: {ott_id}")
         result_df = wd_taxo_fetcher_from_ott(url, ott_id)
+        print(result_df)
         results.append(result_df)
 
     # Concatenate all results into a single DataFrame
